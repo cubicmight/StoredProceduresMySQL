@@ -1,0 +1,18 @@
+# -- use homeworksix;
+#
+# -- DELIMITER $$
+# -- CREATE DEFINER=`root`@`localhost` PROCEDURE `PythonCheck`()
+# -- BEGIN
+# --     insert into pythontriggers value ("1");
+# -- END$$
+# -- DELIMITER ;
+#
+# -- DELIMITER $$
+# -- CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_GetMovies`()
+# -- BEGIN
+# --     insert into PythonOutput select yt_url from links LIMIT 1;
+# -- END$$
+# -- DELIMITER ;
+#
+# -- CREATE TRIGGER DetectInsert After INSERT ON checker
+# --        FOR EACH ROW call sp_GetMovies();
